@@ -1,0 +1,65 @@
+% Basic formatting (font size and spacing, paper margins)
+\documentclass[14pt]{extreport}
+\usepackage[a4paper, inner=3cm, outer=1cm, top=2cm, bottom=2cm, bindingoffset=0cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+
+
+\include{Config}
+\title{Masters disertation}
+\author{pernekhan}
+\date{May 2016}
+
+\begin{document}
+    % Title & assignment
+    \input{title.tex}
+
+    % Abstract
+    \include{Abstract}
+   % \include{AbstractRU}
+   % \include{AbstractKZ}
+   
+    \cleardoublepage
+\pagenumbering{gobble}
+\pagenumbering{arabic}
+  %  \include{0.Abstractkz}
+    % Table of contents,
+    % LaTeX counts pages without the cover and abstract, 
+    % so you should manually set the page, where TOC starts
+
+   
+
+
+  \cleardoublepage
+\pagenumbering{gobble}
+    \tableofcontents
+  \cleardoublepage
+\pagenumbering{arabic}
+
+ \cleardoublepage
+\pagenumbering{gobble}
+    \listoffigures
+ \cleardoublepage
+\pagenumbering{arabic}
+
+ \cleardoublepage
+\pagenumbering{gobble}
+    \listoftables
+ \cleardoublepage
+\pagenumbering{arabic}
+ 
+  \setcounter{page}{10}
+    \include{Introduction}
+    \include{Analytical-Part}
+    \include{Algorithm-Comparisons}
+    \include{Whiteboard-Detection}
+    \include{Noise-Detection}
+    \include{Data-Transmission}
+    \include{Implementation-Details}
+
+
+    \include{Conclusion}
+    
+    \include{Bibliography}
+    
+
+\end{document}
