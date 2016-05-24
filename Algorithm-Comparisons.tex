@@ -1,29 +1,31 @@
 \chapter{Algorithm comparisons for detection of whiteboard}
 
-The problem of contour recognition and segmentation is currently not fully researched area of the science. There exists different kind of recognition algorithms which are still used. Throughout the research there will be done the calculation of the time complexity and memory complexity of the algorithms. In dissertation will be try to decrease the time spend for processing the image also decrease the memory usage of the algorithms. To achieve this goal there may be used algorithms like segmentation tree algorithms, depth-first-search, bit mask etc. Early approaches to contour detection aim at quantifying the presence of a boundary at a given image location through local measurements. The Roberts, Sobel, and Prewitt operators detect edges by convolving a grayscale image with local derivative filters.\cite{Argyle} Marr and Hildreth use zero crossings of the Laplacian of Gaussian operator. The Canny detector also models edges as sharp discontinuities in the brightness channel, adding non-maximum suppression and hysteresis thresholding steps.\cite{Pooja}
+The issue of contour recognition and segmentation is as of now not completely looked into range of the science. There exists diverse sort of recognition algorithms which are still used. In dissertation will be try to decrease the time spend for processing the image also decrease the memory usage of the algorithms. In paper will be attempting to diminish the time spend for handling the picture additionally processing the memory use of the calculations. To achieve this goal there may be used algorithms like segmentation tree algorithms, depth-first-search, bit mask etc. Early ways to deal with form recognition go for evaluating the nearness of a limit at a given picture area through nearby estimations. The Roberts, Sobel, and Prewitt administrators identify edges by convolving a grayscale picture with local derivative filters.\cite{Argyle} Marr and Hildreth used zero intersections of the Laplacian of Gaussian operator. The Canny indicator likewise models edges as sharp discontinuities in the brightness channel, adding non-maximum suppression and hysteresis thresholding steps.\cite{Pooja} 
+
 We presented a new approach to detect of digital images under the assumption that either the camera that took the image or sufficiently many images taken by that camera are available. Methods automatically determine the required area without assuming any a priori knowledge. 
 
-
 \section{Different algorithms and techniques}
-Canny's aim was to discover the optimal edge detection algorithm. In this situation, an "optimal" edge detector means:
+As it was mentioned by John Canny ``the aim was to discover the optimal edge detection algorithm. In this situation, an "optimal" edge detector means:
 \begin{enumerate}
 \item Good detection – the algorithm should mark as many real edges in the image as possible.
 \item Good localization – edges marked should be as close as possible to the edge in the real image.
-\item Minimal response – a given edge in the image should only be marked once, and where possible, image noise should not create false edges. \cite{John}
+\item Minimal response – a given edge in the image should only be marked once, and where possible, image noise should not create false edges.'' \cite{John}
 \end{enumerate}
 
 To satisfy these requirements Canny used the calculus of variations – a technique which finds the function which optimizes a given functional. The optimal function in Canny's detector is described by the sum of four exponential terms, but it can be approximated by the first derivative of a Gaussian.
 
+To satisfy all of these requirements Canny used a system which finds the capacity which streamlines a given utilitarian. The ideal capacity in Canny's indicator is portrayed by the entirety of four exponential terms, however it can be approximated by the principal subsidiary of a Gaussian - the calculus of variations.
+
 The algorithm runs in 5 separate steps:
 \begin{enumerate}
-\item Smoothing: Blurring of the image to remove noise.
+\item ``Smoothing: Blurring of the image to remove noise.
 \item Finding gradients: The edges should be marked where the gradients of the image has large magnitudes.
 \item Non-maximum suppression: Only local maxima should be marked as edges.
 \item Double thresholding: Potential edges are determined by thresholding.
-\item Edge tracking by hysteresis: Final edges are determined by suppressing all edges that are not connected to a very certain (strong) edge \cite{John}
+\item Edge tracking by hysteresis: Final edges are determined by suppressing all edges that are not connected to a very certain (strong) edge'' \cite{John}
 \end{enumerate}
 
-The Canny algorithm is adaptable to various environments. \cite{Marr} Its parameters allow it to be tailored to recognition of edges of differing characteristics depending on the particular requirements of a given implementation. \cite{Heath}
+The Canny algorithm is easy-usable, powerfull and very adaptable to various environments. \cite{Marr} Its parameters allow it to be used to recognition of edges of different kind of characteristics depending on the particular requirements of a given implementation. \cite{Heath}
 
 In Figure \ref{fig:original_image} is shown original image. In this paper we tried to experiment all described above algorithms for finding edges. According to results was made several analysis why do each of the algorithms fit and not fit in our case.
 
@@ -86,8 +88,10 @@ The poorest results were got in Sobel’s algorithm. The main reason for that is
     \label{fig:masks_sobel_operator}
 \end{figure}
 
-Laplacian Operator is also a derivative operator which is used to find edges in an image. The major difference between Laplacian and other operators like Prewitt, Sobel, Robinson and Kirsch is that these all are first order derivative masks but Laplacian is a second order derivative mask. In this mask we have two further classifications one is Positive Laplacian Operator and other is Negative Laplacian Operator.
-Another difference between Laplacian and other operators is that unlike other operators Laplacian didn’t take out edges in any particular direction but it take out edges in following classification.
+Another derivative operator is Laplacian Operator which is used widely to discover and recognize edges in a picture outlines. In this cover we have two further portrayals one is Positive Laplacian Operator and other is Negative Laplacian Operator. The major and the normal distinction amongst Laplacian and different operators like Prewitt, Sobel, Robinson and Kirsch is that these all are first request subsidiary covers, all things considered Laplacian is a second request subordinate. 
+
+Another difference amongst Laplacian and different operators are that not all different operators Laplacian didn't take out edges in a specific heading yet it take out edges in taking after classification.
+
 In Positive Laplacian we have standard mask in which center element of the mask should be negative and corner elements of mask should be zero. \cite{Huertas}
  
 Disadvantage of these algorithms is that the boards of the board and lines in the final image are very week and it contains many noises which is really obstacle in our image processing process. This algorithm works weaker than Canny’s algorithms.
@@ -132,9 +136,11 @@ Prewitt operator, as well as the operator Roberts operates 3x3 image area shown 
 
 In these formulas, the difference between the amounts on the top and bottom rows of 3x3 neighborhood is an approximate value of the derivative along the axis x, and the difference between the sums of the first and last columns of this neighborhood - the derivative along the axis y. 
 
-In simple terms, the operator calculates the gradient of the image intensity at each point, giving the direction of the largest possible increase from light to dark and the rate of change in that direction. The result therefore shows how "abruptly" or "smoothly" the image changes at that point, and therefore how likely it is that part of the image represents an edge, as well as how that edge is likely to be oriented. In practice, the magnitude (likelihood of an edge) calculation is more reliable and easier to interpret than the direction calculation. \cite{Roberts}
+In simple terms, the operator calculates the gradient of the image intensity at each point. It gives the direction of the biggest possible increase from light to dark and the rate of change in that direction. The result therefore shows how "abruptly" or "smoothly" the image changes at that point. Therefore how likely it is that part of the image represents an edge, as well as how that edge is likely to be oriented. In practice, the magnitude calculation is more reliable and easier to interpret than the direction calculation as it is likelihood of an edge. \cite{Roberts}
 
-Mathematically, the gradient of a two-variable function (here the image intensity function) is at each image point a 2D vector with the components given by the derivatives in the horizontal and vertical directions. At each image point, the gradient vector points in the direction of largest possible intensity increase, and the length of the gradient vector corresponds to the rate of change in that direction. This implies that the result of the Prewitt operator at an image point which is in a region of constant image intensity is a zero vector and at a point on an edge is a vector which points across the edge, from darker to brighter values. \cite{Raman}
+In basic terms, the operator computes the inclination of the picture at every point. It gives the bearing of the greatest conceivable increment from bright to dark and the rate of alter in that course. The outcome accordingly demonstrates how "abruptly" or "smoothly" as it was discussed in \cite{Roberts} the picture changes by then. Hence how likely it is that part of the image represents an edge, and additionally how that edge is likely to be oriented. In practice, the magnitude calculation is more solid and less demanding to translate than the bearing estimation as it is probability of an edge.
+
+As it is mentioned in \cite{Raman} ``Mathematically, the gradient of a two-variable function (here the image intensity function) is at each image point a 2D vector with the components given by the derivatives in the horizontal and vertical directions. At each image point, the gradient vector points in the direction of largest possible intensity increase, and the length of the gradient vector corresponds to the rate of change in that direction. This implies that the result of the Prewitt operator at an image point which is in a region of constant image intensity is a zero vector and at a point on an edge is a vector which points across the edge, from darker to brighter values.''
 
 \section{Detection using consecutive frames}
 
